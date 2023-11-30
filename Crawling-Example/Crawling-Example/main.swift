@@ -27,8 +27,8 @@ let articles: Elements = try doc.select(tagClass)
 let latestArticle = (try? articles.first()!.html())!
 let fileManager = FileManager.default
 let documentURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-let directoryPath: URL = documentURL.appendingPathComponent("apple")
-let textPath: URL = directoryPath.appendingPathComponent("news.md")
+
+let textPath: URL = documentURL.appendingPathComponent("news.md")
 if let data: Data = latestArticle.data(using: String.Encoding.utf8) {
   do {
     try data.write(to: textPath)
